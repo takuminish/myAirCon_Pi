@@ -1,74 +1,104 @@
 require 'sinatra'
 require 'dotenv'
 
+def request_check 
+
+  if request.env["HTTP_X_REQUESTED_WITH"] == ENV["X"]
+    return true
+  else
+    return false
+  end
+
+end
+
+
+
 Dotenv.load
 
 get '/room' do
 
-  response = {
-    code: "room"
-  }
-
+  if request_check
+    response = {
+      code: "room"
+    }
+  
   response.to_json
 
+  end
+  
 end
 
 get '/aircon' do
 
-  response = {
-    code: "aircon"
-  }
+  if request_check
+    response = {
+      code: "aircon"
+    }
 
-  response.to_json
-
+    response.to_json
+  end
+  
 end
 
 get '/cool' do
 
-  response = {
-    code: "cool"
-  }
+  if request_check
+    response = {
+      code: "cool"
+    }
 
-  response.to_json
+    response.to_json
+
+  end
 
 end
 
 get '/hot' do
 
-  response = {
-    code: "hot"
-  }
+  if request_check
+    response = {
+      code: "hot"
+    }
 
-  response.to_json
-
+    response.to_json
+  end
+  
 end
 
 get '/off' do
 
-  response = {
-    code: "off"
-  }
+  if request_check
+    response = {
+      code: "off"
+    }
 
-  response.to_json
-
+    response.to_json
+  end
+  
 end
 
 get '/up' do
 
-  response = {
-    code: "up"
-  }
+  if request_check
+    response = {
+      code: "up"
+    }
 
-  response.to_json
-
+    response.to_json
+  end
+ 
 end
 
 get '/down' do
 
-  response = {
-    code: "down"
-  }
+  if request_check
+    response = {
+      code: "down"
+    }
 
-  response.to_json
-
+    response.to_json
+  end
+ 
 end
+
+
