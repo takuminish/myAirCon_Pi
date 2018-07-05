@@ -1,4 +1,7 @@
 require 'sinatra'
+require 'dotenv'
+
+Dotenv.load
 
 get '/room' do
 
