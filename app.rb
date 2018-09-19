@@ -2,7 +2,8 @@ require 'sinatra'
 require 'dotenv'
 
 def request_check 
-
+  p  request.env["HTTP_X_REQUESTED_WITH"]
+  p ENV["X"]
   if request.env["HTTP_X_REQUESTED_WITH"] == ENV["X"]
     return true
   else
@@ -21,8 +22,8 @@ get '/room' do
     response = {
       code: "room"
     }
-  
-  response.to_json
+
+    response.to_json
 
   end
   
@@ -47,6 +48,7 @@ get '/cool' do
       code: "cool"
     }
 
+    system("sh aircon.sh cool")        
     response.to_json
 
   end
@@ -60,6 +62,7 @@ get '/hot' do
       code: "hot"
     }
 
+    system("sh aircon.sh hot")    
     response.to_json
   end
   
@@ -71,7 +74,7 @@ get '/off' do
     response = {
       code: "off"
     }
-
+    system("sh aircon.sh off")    
     response.to_json
   end
   
@@ -101,4 +104,4 @@ get '/down' do
  
 end
 
-
+                                                         
